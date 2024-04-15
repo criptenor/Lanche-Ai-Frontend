@@ -199,6 +199,11 @@ class _MetodoPagamentoWidgetState extends State<MetodoPagamentoWidget> {
                                   });
                                 }
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
                               activeColor: FlutterFlowTheme.of(context).primary,
                               checkColor: FlutterFlowTheme.of(context).info,
                             ),
@@ -282,6 +287,11 @@ class _MetodoPagamentoWidgetState extends State<MetodoPagamentoWidget> {
                                   });
                                 }
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
                               activeColor: FlutterFlowTheme.of(context).primary,
                               checkColor: FlutterFlowTheme.of(context).info,
                             ),
@@ -365,6 +375,11 @@ class _MetodoPagamentoWidgetState extends State<MetodoPagamentoWidget> {
                                   });
                                 }
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
                               activeColor: FlutterFlowTheme.of(context).primary,
                               checkColor: FlutterFlowTheme.of(context).info,
                             ),

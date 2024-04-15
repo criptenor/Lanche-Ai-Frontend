@@ -25,3 +25,7 @@ export '/admin/configuracoes_adm/configuracoes_adm_widget.dart'
 export '/user_side/welcome_page/welcome_page_widget.dart'
     show WelcomePageWidget;
 export '/admin/analitics/analitics_widget.dart' show AnaliticsWidget;
+export '/admin/cadastrar_produto/cadastrar_produto_widget.dart'
+    show CadastrarProdutoWidget;
+export '/admin/configuracoes_adm_copy/configuracoes_adm_copy_widget.dart'
+    show ConfiguracoesAdmCopyWidget;

@@ -105,7 +105,7 @@ class _PedidoRealizadoWidgetState extends State<PedidoRealizadoWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed(
+                      context.goNamed(
                         'detalhesHistorico',
                         queryParameters: {
                           'id': serializeParam(
@@ -174,6 +174,8 @@ class _PedidoRealizadoWidgetState extends State<PedidoRealizadoWidget> {
                                 var1 +
                                 '&text= Olá, Quero Acompanhar Meu Pedido!';
                           }(buttonLojaRow!.numeroCelular!));
+
+                          context.goNamed('Inicio');
                         },
                         text: 'Acompanhar Pedido pelo Whatsapp',
                         options: FFButtonOptions(
@@ -206,7 +208,7 @@ class _PedidoRealizadoWidgetState extends State<PedidoRealizadoWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      context.pushNamed('Inicio');
+                      context.goNamed('Inicio');
                     },
                     text: 'Voltar Para o Início',
                     options: FFButtonOptions(

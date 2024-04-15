@@ -178,6 +178,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'id',
               ParamType.int,
             ),
+            view: params.getParam(
+              'view',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
@@ -204,6 +208,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'analitics',
           path: '/analitics',
           builder: (context, params) => AnaliticsWidget(),
+        ),
+        FFRoute(
+          name: 'cadastrarProduto',
+          path: '/cadastrarProduto',
+          builder: (context, params) => CadastrarProdutoWidget(
+            idProduto: params.getParam(
+              'idProduto',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'configuracoesAdmCopy',
+          path: '/configuracoesAdmCopy',
+          builder: (context, params) => ConfiguracoesAdmCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -5,6 +5,7 @@ import 'backend/api_requests/api_manager.dart';
 import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -68,6 +69,9 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _coordenadas =
           latLngFromString(prefs.getString('ff_coordenadas')) ?? _coordenadas;
+    });
+    _safeInit(() {
+      _numeroItens = prefs.getInt('ff_numeroItens') ?? _numeroItens;
     });
   }
 
@@ -286,6 +290,71 @@ class FFAppState extends ChangeNotifier {
 
   void updateAnaliticsStruct(Function(GetMetricasStruct) updateFn) {
     updateFn(_analitics);
+  }
+
+  List<dynamic> _tasks = [];
+  List<dynamic> get tasks => _tasks;
+  set tasks(List<dynamic> _value) {
+    _tasks = _value;
+  }
+
+  void addToTasks(dynamic _value) {
+    _tasks.add(_value);
+  }
+
+  void removeFromTasks(dynamic _value) {
+    _tasks.remove(_value);
+  }
+
+  void removeAtIndexFromTasks(int _index) {
+    _tasks.removeAt(_index);
+  }
+
+  void updateTasksAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _tasks[_index] = updateFn(_tasks[_index]);
+  }
+
+  void insertAtIndexInTasks(int _index, dynamic _value) {
+    _tasks.insert(_index, _value);
+  }
+
+  List<dynamic> _lists = [];
+  List<dynamic> get lists => _lists;
+  set lists(List<dynamic> _value) {
+    _lists = _value;
+  }
+
+  void addToLists(dynamic _value) {
+    _lists.add(_value);
+  }
+
+  void removeFromLists(dynamic _value) {
+    _lists.remove(_value);
+  }
+
+  void removeAtIndexFromLists(int _index) {
+    _lists.removeAt(_index);
+  }
+
+  void updateListsAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _lists[_index] = updateFn(_lists[_index]);
+  }
+
+  void insertAtIndexInLists(int _index, dynamic _value) {
+    _lists.insert(_index, _value);
+  }
+
+  int _numeroItens = 0;
+  int get numeroItens => _numeroItens;
+  set numeroItens(int _value) {
+    _numeroItens = _value;
+    prefs.setInt('ff_numeroItens', _value);
   }
 }
 

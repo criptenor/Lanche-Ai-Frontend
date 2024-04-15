@@ -173,7 +173,6 @@ class _BuscarProdutoWidgetState extends State<BuscarProdutoWidget> {
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
-                                minLines: null,
                                 validator: _model.textControllerValidator
                                     .asValidator(context),
                               ),
@@ -241,8 +240,8 @@ class _BuscarProdutoWidgetState extends State<BuscarProdutoWidget> {
                                 SliverSimpleGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                             ),
-                            crossAxisSpacing: 10.0,
-                            mainAxisSpacing: 10.0,
+                            crossAxisSpacing: 20.0,
+                            mainAxisSpacing: 20.0,
                             itemCount: produtosMaisVendidos.length,
                             itemBuilder: (context, produtosMaisVendidosIndex) {
                               final produtosMaisVendidosItem =
@@ -250,7 +249,7 @@ class _BuscarProdutoWidgetState extends State<BuscarProdutoWidget> {
                                       produtosMaisVendidosIndex];
                               return Container(
                                 width: MediaQuery.sizeOf(context).width * 0.9,
-                                height: double.infinity,
+                                height: 275.0,
                                 constraints: BoxConstraints(
                                   minHeight:
                                       MediaQuery.sizeOf(context).height * 0.25,
@@ -262,18 +261,18 @@ class _BuscarProdutoWidgetState extends State<BuscarProdutoWidget> {
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 4.0,
+                                      blurRadius: 15.0,
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       offset: Offset(
-                                        0.0,
-                                        2.0,
+                                        5.0,
+                                        5.0,
                                       ),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(4.0),
+                                  borderRadius: BorderRadius.circular(24.0),
                                   border: Border.all(
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: Color(0x00967276),
                                     width: 0.5,
                                   ),
                                 ),
@@ -298,146 +297,173 @@ class _BuscarProdutoWidgetState extends State<BuscarProdutoWidget> {
                                       }.withoutNulls,
                                     );
                                   },
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0.0),
-                                          bottomRight: Radius.circular(0.0),
-                                          topLeft: Radius.circular(8.0),
-                                          topRight: Radius.circular(8.0),
-                                        ),
-                                        child: Image.network(
-                                          '${produtosMaisVendidosItem.pathFoto}',
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.35,
-                                          height: 100.0,
-                                          fit: BoxFit.cover,
-                                        ),
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(24.0),
+                                      border: Border.all(
+                                        color: Colors.transparent,
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 12.0, 16.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Stack(
                                           children: [
-                                            Expanded(
-                                              child: Text(
-                                                produtosMaisVendidosItem.nome
-                                                    .maybeHandleOverflow(
-                                                  maxChars: 36,
-                                                  replacement: '…',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color:
-                                                              Color(0xFF101213),
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(25.0),
+                                                topRight: Radius.circular(25.0),
+                                              ),
+                                              child: Image.network(
+                                                '${produtosMaisVendidosItem.pathFoto}',
+                                                width: double.infinity,
+                                                height: 150.0,
+                                                fit: BoxFit.cover,
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 0.0, 16.0, 8.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                produtosMaisVendidosItem
-                                                    .descricao
-                                                    .maybeHandleOverflow(
-                                                  maxChars: 90,
-                                                  replacement: '…',
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color:
-                                                              Color(0xFF57636C),
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        height: 40.0,
-                                        decoration: BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 0.0, 24.0, 12.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: [
-                                                  Icon(
-                                                    Icons.monetization_on_sharp,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    size: 30.0,
+                                                      0.0, 115.0, 0.0, 0.0),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 160.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                    bottomLeft:
+                                                        Radius.circular(25.0),
+                                                    bottomRight:
+                                                        Radius.circular(25.0),
+                                                    topLeft:
+                                                        Radius.circular(25.0),
+                                                    topRight:
+                                                        Radius.circular(25.0),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(4.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      valueOrDefault<String>(
-                                                        functions.saidaEmReais(
-                                                            produtosMaisVendidosItem
-                                                                .valor),
-                                                        'indefinido',
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success,
-                                                                fontSize: 18.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
+                                                  border: Border.all(
+                                                    color: Color(0x001D2428),
+                                                  ),
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  12.0,
+                                                                  16.0,
+                                                                  8.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            child: Text(
+                                                              produtosMaisVendidosItem
+                                                                  .nome
+                                                                  .maybeHandleOverflow(
+                                                                maxChars: 36,
+                                                                replacement:
+                                                                    '…',
                                                               ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: Color(
+                                                                        0xFF101213),
+                                                                    fontSize:
+                                                                        20.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
                                                     ),
-                                                  ),
-                                                ],
+                                                    Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      0.0,
+                                                                      24.0,
+                                                                      12.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: [
+                                                              Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  functions.saidaEmReais(
+                                                                      produtosMaisVendidosItem
+                                                                          .valor),
+                                                                  'indefinido',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Outfit',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .success,
+                                                                      fontSize:
+                                                                          18.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                           ],
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );

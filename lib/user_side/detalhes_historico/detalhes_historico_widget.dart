@@ -25,9 +25,11 @@ class DetalhesHistoricoWidget extends StatefulWidget {
   const DetalhesHistoricoWidget({
     super.key,
     required this.id,
-  });
+    bool? view,
+  }) : this.view = view ?? false;
 
   final int? id;
+  final bool view;
 
   @override
   State<DetalhesHistoricoWidget> createState() =>
@@ -138,11 +140,16 @@ class _DetalhesHistoricoWidgetState extends State<DetalhesHistoricoWidget>
                                 size: 24.0,
                               ),
                               onPressed: () async {
-                                context.pop();
-                                setState(() {
-                                  FFAppState().idHash =
-                                      functions.gerarNumeroAletario6Digitos();
-                                });
+                                if (widget.view) {
+                                  context.safePop();
+                                } else {
+                                  context.pushNamed('historico');
+
+                                  setState(() {
+                                    FFAppState().idHash =
+                                        functions.gerarNumeroAletario6Digitos();
+                                  });
+                                }
                               },
                             ),
                             Builder(

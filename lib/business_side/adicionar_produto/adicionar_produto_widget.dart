@@ -227,7 +227,6 @@ class _AdicionarProdutoWidgetState extends State<AdicionarProdutoWidget> {
                                       fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
-                                minLines: null,
                                 validator: _model.textController1Validator
                                     .asValidator(context),
                               ),
@@ -303,7 +302,6 @@ class _AdicionarProdutoWidgetState extends State<AdicionarProdutoWidget> {
                                       fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
-                                minLines: null,
                                 validator: _model.textController2Validator
                                     .asValidator(context),
                               ),
@@ -451,7 +449,6 @@ class _AdicionarProdutoWidgetState extends State<AdicionarProdutoWidget> {
                                       fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
-                                minLines: null,
                                 keyboardType: TextInputType.number,
                                 validator: _model.textController3Validator
                                     .asValidator(context),
@@ -519,7 +516,6 @@ class _AdicionarProdutoWidgetState extends State<AdicionarProdutoWidget> {
                                       fontFamily: 'Poppins',
                                       letterSpacing: 0.0,
                                     ),
-                                minLines: null,
                                 keyboardType:
                                     const TextInputType.numberWithOptions(
                                         decimal: true),

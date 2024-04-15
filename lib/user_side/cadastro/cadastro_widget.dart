@@ -229,7 +229,6 @@ class _CadastroWidgetState extends State<CadastroWidget>
                                               letterSpacing: 0.0,
                                             ),
                                         maxLines: null,
-                                        minLines: null,
                                         validator: _model
                                             .emailAddressControllerValidator
                                             .asValidator(context),
@@ -323,7 +322,6 @@ class _CadastroWidgetState extends State<CadastroWidget>
                                               color: Color(0xFF0F1113),
                                               letterSpacing: 0.0,
                                             ),
-                                        minLines: null,
                                         validator: _model
                                             .passwordControllerValidator
                                             .asValidator(context),
@@ -460,7 +458,6 @@ class _CadastroWidgetState extends State<CadastroWidget>
                                               letterSpacing: 0.0,
                                             ),
                                         maxLines: null,
-                                        minLines: null,
                                         validator: _model
                                             .emailAddressCreateControllerValidator
                                             .asValidator(context),
@@ -559,7 +556,6 @@ class _CadastroWidgetState extends State<CadastroWidget>
                                               color: Color(0xFF0F1113),
                                               letterSpacing: 0.0,
                                             ),
-                                        minLines: null,
                                         validator: _model
                                             .passwordCreateControllerValidator
                                             .asValidator(context),

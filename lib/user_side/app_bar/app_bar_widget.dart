@@ -76,7 +76,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: 100.0,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).primary,
+            color: Color(0x00CB8088),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -86,7 +86,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 70.0,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primary,
+                  color: Color(0x00CB8088),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
@@ -94,13 +94,6 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        ' ',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              letterSpacing: 0.0,
-                            ),
-                      ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
@@ -163,7 +156,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 30.0,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: Color(0x00FFFFFF),
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),

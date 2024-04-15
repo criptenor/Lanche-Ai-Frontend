@@ -163,7 +163,7 @@ class _ObservacaoprodutoWidgetState extends State<ObservacaoprodutoWidget>
                     autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Ex.; Retire a mostarda',
+                      labelText: 'Ex.: Retire a mostarda',
                       labelStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Poppins',
@@ -233,7 +233,7 @@ class _ObservacaoprodutoWidgetState extends State<ObservacaoprodutoWidget>
 
                     context.goNamed('carrinho');
                   },
-                  text: 'Voltar Para o Início',
+                  text: 'Proseguir',
                   options: FFButtonOptions(
                     width: 270.0,
                     height: 50.0,

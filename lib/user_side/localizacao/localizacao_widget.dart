@@ -136,9 +136,9 @@ class _LocalizacaoWidgetState extends State<LocalizacaoWidget> {
                                 0.0, 80.0, 0.0, 10.0),
                             child: Builder(builder: (context) {
                               final _googleMapMarker = (functions
-                                      .localVazio(FFAppState().coordenadas)
+                                      .localVazio(currentUserLocationValue)
                                   ? _model.placePickerValue.latLng
-                                  : FFAppState().coordenadas);
+                                  : currentUserLocationValue);
                               return FlutterFlowGoogleMap(
                                 controller: _model.googleMapsController,
                                 onCameraIdle: (latLng) =>
@@ -178,7 +178,7 @@ class _LocalizacaoWidgetState extends State<LocalizacaoWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Visibility(
                                   visible: !_model.place,
                                   child: Padding(
@@ -186,6 +186,7 @@ class _LocalizacaoWidgetState extends State<LocalizacaoWidget> {
                                         0.0, 15.0, 0.0, 0.0),
                                     child: Text(
                                       FFAppState().localizacao,
+                                      textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(

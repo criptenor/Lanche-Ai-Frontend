@@ -395,3 +395,15 @@ List<ProdutoSendoCompradoStruct> adiconarMaisNaQuantidadeporIdHash(
 
   return produtoComprado;
 }
+
+String percentualSaida(double percentualEntrada) {
+  // multiplique por 100 com 1 unica casa decimal tranforme em string e coloque %
+  double percentualSaida = percentualEntrada * 100;
+  percentualSaida = (percentualSaida * 10).round() / 10;
+  return percentualSaida.toStringAsFixed(1) + '%';
+}
+
+List<int> horasDoDia() {
+  // retorne uma lista com 24 numeros do 00 ao 23
+  return List.generate(24, (index) => index);
+}

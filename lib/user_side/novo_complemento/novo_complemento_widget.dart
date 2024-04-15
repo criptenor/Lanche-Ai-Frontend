@@ -1,3 +1,4 @@
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -6,25 +7,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'informacoes_para_compra_model.dart';
-export 'informacoes_para_compra_model.dart';
+import 'novo_complemento_model.dart';
+export 'novo_complemento_model.dart';
 
-class InformacoesParaCompraWidget extends StatefulWidget {
-  const InformacoesParaCompraWidget({
+class NovoComplementoWidget extends StatefulWidget {
+  const NovoComplementoWidget({
     super.key,
     bool? edit,
+    this.idProduto,
   }) : this.edit = edit ?? false;
 
   final bool edit;
+  final int? idProduto;
 
   @override
-  State<InformacoesParaCompraWidget> createState() =>
-      _InformacoesParaCompraWidgetState();
+  State<NovoComplementoWidget> createState() => _NovoComplementoWidgetState();
 }
 
-class _InformacoesParaCompraWidgetState
-    extends State<InformacoesParaCompraWidget> {
-  late InformacoesParaCompraModel _model;
+class _NovoComplementoWidgetState extends State<NovoComplementoWidget> {
+  late NovoComplementoModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,20 +36,12 @@ class _InformacoesParaCompraWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InformacoesParaCompraModel());
+    _model = createModel(context, () => NovoComplementoModel());
 
-    _model.textController1 ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().UsuarioNome,
-      'Digite Seu Nome',
-    ));
+    _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().UsuarioNumero,
-      'Digite Seu Número',
-    ));
+    _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -69,7 +62,7 @@ class _InformacoesParaCompraWidgetState
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.7,
-        height: MediaQuery.sizeOf(context).height * 0.7,
+        height: MediaQuery.sizeOf(context).height * 0.5,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.circular(6.0),
@@ -86,19 +79,10 @@ class _InformacoesParaCompraWidgetState
                 children: [
                   Expanded(
                     child: Container(
-                      height: 240.0,
+                      height: 80.0,
                       child: Stack(
                         alignment: AlignmentDirectional(-0.95, -0.7),
                         children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Image.network(
-                              'https://odtsaxxshxzdatavzftv.supabase.co/storage/v1/object/public/img/Design%20sem%20nome%20(10).png?t=2024-03-28T08%3A07%3A09.575Z',
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 240.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
                           Align(
                             alignment: AlignmentDirectional(-1.15, -0.95),
                             child: InkWell(
@@ -148,7 +132,7 @@ class _InformacoesParaCompraWidgetState
                       Align(
                         alignment: AlignmentDirectional(-1.0, 1.0),
                         child: Text(
-                          'Nome',
+                          'Nome do Complemento',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
@@ -164,10 +148,7 @@ class _InformacoesParaCompraWidgetState
                     autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
-                      hintText: valueOrDefault<String>(
-                        FFAppState().UsuarioNome,
-                        'Digite Seu Nome',
-                      ),
+                      hintText: 'Nome do Complemento',
                       hintStyle:
                           FlutterFlowTheme.of(context).bodyLarge.override(
                                 fontFamily: 'Poppins',
@@ -224,7 +205,7 @@ class _InformacoesParaCompraWidgetState
                         Align(
                           alignment: AlignmentDirectional(-1.0, 1.0),
                           child: Text(
-                            'Número',
+                            'Valor do Complemento',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -241,10 +222,7 @@ class _InformacoesParaCompraWidgetState
                       autofocus: false,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: valueOrDefault<String>(
-                          FFAppState().UsuarioNumero,
-                          'Digite Seu Número',
-                        ),
+                        hintText: 'Valor do Complemento',
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyLarge.override(
                                   fontFamily: 'Poppins',
@@ -293,9 +271,9 @@ class _InformacoesParaCompraWidgetState
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    setState(() {
-                      FFAppState().UsuarioNome = _model.textController1.text;
-                      FFAppState().UsuarioNumero = _model.textController2.text;
+                    await ComplementoTable().insert({
+                      'id_loja': FFAppState().IDAPP,
+                      'id_produto': widget.idProduto,
                     });
                     Navigator.pop(context);
                     if (!widget.edit) {

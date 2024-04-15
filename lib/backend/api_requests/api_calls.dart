@@ -394,12 +394,12 @@ class GetMetricasCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "id_loja_parametro": ${idLoja}
+  "id_loja_param": ${idLoja}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getMetricas',
       apiUrl:
-          'https://odtsaxxshxzdatavzftv.supabase.co/rest/v1/rpc/get_metricas',
+          'https://odtsaxxshxzdatavzftv.supabase.co/rest/v1/rpc/calcular_metricas',
       callType: ApiCallType.POST,
       headers: {
         'apikey':
@@ -418,64 +418,66 @@ class GetMetricasCall {
     );
   }
 
-  static double? pix(dynamic response) => castToType<double>(getJsonField(
+  static double? valoTotal(dynamic response) => castToType<double>(getJsonField(
         response,
-        r'''$[:].pix_percentual''',
+        r'''$[:].valor_total_vendas_24h''',
       ));
-  static String? horarioDePico(dynamic response) =>
+  static int? qtdProduto(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].qtd_produtos_vendidos_24h''',
+      ));
+  static int? valorDinheiro(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].valor_total_dinheiro_24h''',
+      ));
+  static int? percentDinheiro(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].percentual_pagamento_dinheiro_24h''',
+      ));
+  static int? percentCartao(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$[:].percentual_pagamento_cartao_24h''',
+      ));
+  static String? velocidadeProducao(dynamic response) =>
       castToType<String>(getJsonField(
         response,
-        r'''$[:].horario_maior_pedido''',
-      ));
-  static double? dinheiro(dynamic response) => castToType<double>(getJsonField(
-        response,
-        r'''$[:].dinheiro_percentual''',
-      ));
-  static double? cartao(dynamic response) => castToType<double>(getJsonField(
-        response,
-        r'''$[:].cartao_percentual''',
-      ));
-  static int? vendas(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$[:].vendas_ultimas_24h''',
+        r'''$[:].velocidade_total_producao_24h''',
       ));
   static double? totalPix(dynamic response) => castToType<double>(getJsonField(
         response,
-        r'''$[:].total_pix''',
+        r'''$[:].valor_total_pix_24h''',
       ));
-  static double? totalCard(dynamic response) => castToType<double>(getJsonField(
+  static int? totalCartao(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$[:].total_cartao''',
+        r'''$[:].valor_total_cartao_24h''',
       ));
-  static double? totalDinheiro(dynamic response) =>
-      castToType<double>(getJsonField(
+  static int? percentPix(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$[:].total_dinheiro''',
+        r'''$[:].percentual_pagamento_pix_24h''',
       ));
-  static int? velocidadepedidohoje(dynamic response) =>
-      castToType<int>(getJsonField(
-        response,
-        r'''$[:].velocidade_pedido_hoje''',
-      ));
-  static double? velocidadedaproducaohoje(dynamic response) =>
-      castToType<double>(getJsonField(
-        response,
-        r'''$[:].velocidade_da_producao_hoje''',
-      ));
-  static String? tempoMEntrega(dynamic response) =>
+  static String? velocidadeTotal(dynamic response) =>
       castToType<String>(getJsonField(
         response,
-        r'''$[:].tempo_medio_aceito_entregue''',
+        r'''$[:].velocidade_total_atendimento_24h''',
       ));
-  static String? tempoMProducao(dynamic response) =>
-      castToType<String>(getJsonField(
-        response,
-        r'''$[:].tempo_medio_pedido_pronto''',
-      ));
-  static double? total(dynamic response) => castToType<double>(getJsonField(
-        response,
-        r'''$[:].valor_total_ultimas_24h''',
-      ));
+}
+
+class WebWppCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'webWpp',
+      apiUrl: 'http://127.0.0.1:8000/',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {

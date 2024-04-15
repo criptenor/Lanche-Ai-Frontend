@@ -26,9 +26,9 @@ class LojaRow extends SupabaseDataRow {
   String? get descricao => getField<String>('descricao');
   set descricao(String? value) => setField<String>('descricao', value);
 
-  String? get paletaDeCores => getField<String>('paleta_de_cores');
-  set paletaDeCores(String? value) =>
-      setField<String>('paleta_de_cores', value);
+  dynamic? get paletaDeCores => getField<dynamic>('paleta_de_cores');
+  set paletaDeCores(dynamic? value) =>
+      setField<dynamic>('paleta_de_cores', value);
 
   String? get numeroCelular => getField<String>('numero_celular');
   set numeroCelular(String? value) => setField<String>('numero_celular', value);
