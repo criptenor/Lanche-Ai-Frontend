@@ -1,7 +1,8 @@
 # Lanche Ai - Frontend
 
-![Lanche Ai](lanche-ai (1).png)
-![Lanche Ai](lanche-ai (2).png)
+![Lanche Ai](lanche-ai-a.png)
+![Lanche Ai](lanche-ai-c.png)
+
 
 O Lanche Ai é um sistema completo de gestão de pedidos, desenvolvido para otimizar o processo de vendas e atendimento ao cliente. Este repositório contém o frontend do projeto, implementado em Dart no framework flutter, com conexões dinâmicas ao banco de dados Supabase e integração com o backend.
 
